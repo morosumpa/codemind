@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,13 +10,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_respuestas', function (Blueprint $table) {
-            $table->id();            
-            $table->unsignedBigInteger('id_pregunta');
-            $table->string('opcion');
-            $table->boolean('es_correcta');
+        Schema::create('answers', function (Blueprint $table) {
+            $table->id('AnswerID');
+            $table->unsignedBigInteger('QuestionID');
+            $table->foreign('QuestionID')->references('id')->on('questions');
+            $table->text('AnswerText');
+            $table->boolean('IsCorrect');
             $table->timestamps();
-
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_respuestas');
+        Schema::dropIfExists('answers');
     }
 };
