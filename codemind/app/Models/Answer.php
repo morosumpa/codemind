@@ -9,6 +9,12 @@ class Answer extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'question_id',
+        'AnswerText',
+        'IsCorrect'
+    ];
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_achievements');

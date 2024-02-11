@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,5 @@ Route::get('/home', function () {
     return view('auth.dashboard');
 })->middleware('auth');
 
-Route::get('/question', function () {
-    return view('quizz');
-});
+Route::get('/question/{id}', [QuestionController::class, 'show']);
+
