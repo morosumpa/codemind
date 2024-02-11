@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('QuestionID');
-            $table->foreign('QuestionID')->references('id')->on('questions');
+            $table->unsignedBigInteger('question_id');  // Updated here
+            $table->foreign('question_id')->references('id')->on('questions');
             $table->text('AnswerText');
             $table->boolean('IsCorrect');
             $table->timestamps();
