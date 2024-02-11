@@ -19,4 +19,9 @@ class Answer extends Model
     {
         return $this->belongsToMany(User::class, 'user_achievements');
     }
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class);
+    }
 }

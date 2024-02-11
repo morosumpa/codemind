@@ -9,6 +9,11 @@ class Achievement extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'tier',
+        
+    ];
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_achievements');
