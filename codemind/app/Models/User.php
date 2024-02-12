@@ -44,11 +44,13 @@ class User extends Authenticatable
     ];
 
 
-    public function achievements(){
+    public function achievements()
+    {
         return $this->belongsToMany(Achievement::class, 'user_achievements');
     }
 
-    public function answers(){
-        return $this->belongsToMany(Answer::class, 'user_answers')->withPivot('QuestionID');
+    public function answers()
+    {
+        return $this->belongsToMany(Answer::class, 'user_answers')->withPivot('question_id');
     }
 }

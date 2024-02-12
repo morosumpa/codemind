@@ -17,7 +17,7 @@ class Answer extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_achievements');
+        return $this->belongsToMany(User::class, 'user_answers')->withPivot('question_id');
     }
 
     public function question()

@@ -14,11 +14,16 @@ class AnswerController extends Controller
     {
 
         $user = Auth::user();
+        $answerId = $request->answer_id;
+        $answer=Answer::find($answerId);
+        $questionId = $request->question_id;
 
-        $user->answers->attach($request->answer_id, ['question_id' => $request->question_id]);
+        
+        $user->answers()->attach($answer,['question_id'=>$questionId]);
 
+        $nextQuestion = $questionId + 1;
 
-        return redirect('/');
+        return redirect('question/' . $nextQuestion);
     }
 
     public function checkAnswers($worldId)
@@ -40,23 +45,18 @@ class AnswerController extends Controller
         if ($userCorrectAnswers < 3) {
 
             $user->achievements->attach(1, ['world_id' => $worldId]);
-
         } elseif ($userCorrectAnswers >= 3 && $userCorrectAnswers < 5) {
 
             $user->achievements->attach(2, ['world_id' => $worldId]);
-
         } elseif ($userCorrectAnswers >= 5 && $userCorrectAnswers < 7) {
 
             $user->achievements->attach(3, ['world_id' => $worldId]);
-
         } elseif ($userCorrectAnswers >= 7 && $userCorrectAnswers < 10) {
 
             $user->achievements->attach(4, ['world_id' => $worldId]);
-
         } elseif ($userCorrectAnswers == 10) {
 
             $user->achievements->attach(5, ['world_id' => $worldId]);
-
         }
         return redirect('/');
     }

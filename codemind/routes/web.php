@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route::get('/home', function () {
 
 Route::get('/question/{id}', [QuestionController::class, 'show']);
 
+Route::post('/question/{id}/saveUserAnswer',[AnswerController::class,'saveUserAnswer'])->name('saveUserAnswer');
+Route::post('/question/checkAnswers/{id}',[AnswerController::class,'checkAnswers'])->name('checkAnswers');

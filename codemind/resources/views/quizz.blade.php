@@ -7,17 +7,24 @@
 
     <img src="" alt="Codigo">
 
-    <form action="@if ($question->id != 10) @else @endif" method="POST">
+    <form
+        action="@if ($question->id != 10) {{ route('saveUserAnswer', $question->id) }} @else {{ route('checkAnswers', 1) }} @endif"
+        method="POST">
+
+        @csrf
         <div class="row justify-content-center align-items-center gap-2">
             @foreach ($answers as $answer)
                 <div class="col-12 col-xl-2 border p-3 rounded">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="respuesta" id="" />
+                        <input class="form-check-input" type="radio" name="answer_id" id="answer_id"
+                            value="{{ $answer->id }}" />
                         <label class="form-check-label" for=""> {{ $answer->AnswerText }} </label>
                     </div>
 
                 </div>
             @endforeach
+
+            <input class="form-check-input" type="number" name="question_id" id="question_id" value="{{ $question->id }}" hidden />
 
             <div class="row justify-content-center align-items-center g-2">
                 <div class="col-3 offset-9">
@@ -33,9 +40,6 @@
                 </div>
 
             </div>
-
-
-
 
         </div>
     </form>
