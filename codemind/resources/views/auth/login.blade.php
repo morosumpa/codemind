@@ -1,4 +1,6 @@
 @extends('auth.template')
+@include('template.navbar')
+
 
 @section('content')
 <div class="container">
