@@ -11,9 +11,5 @@
         "laravel-vite-plugin": "^1.0.0",
         "sass": "^1.70.0",
         "vite": "^5.0.0"
-    },
-    "dependencies": {
-        "gsap": "^3.12.5",
-        "imagesloaded": "^5.0.0"
     }
 }
