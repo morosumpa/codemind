@@ -1,10 +1,22 @@
 @extends('template.template')
 
+@section('css')
+    @if ($question->id == 1)
+        <link rel="stylesheet" href="{{ asset('css/git.css') }}">
+    @elseif($question->id == 2)
+        <link rel="stylesheet" href="{{ asset('css/htmlcss.css') }}">
+    @elseif($question->id == 3)
+        <link rel="stylesheet" href="{{ asset('css/php.css') }}">
+    @elseif($question->id == 4)
+        <link rel="stylesheet" href="{{ asset('css/javascript.css') }}">
+    @elseif($question->id == 5)
+        <link rel="stylesheet" href="{{ asset('css/java.css') }}">
+    @endif
+@endsection
+
 @section('content')
     <h1 class="fw-light">Mundo</h1>
-
     <h3 class="fw-light text-center">{{ $question->QuestionText }}</h3>
-
     <img src="" alt="Codigo">
 
     <form action="@if ($question->id != 10) @else @endif" method="POST">
@@ -33,9 +45,6 @@
                 </div>
 
             </div>
-
-
-
 
         </div>
     </form>
