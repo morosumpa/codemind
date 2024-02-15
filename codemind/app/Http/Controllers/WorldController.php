@@ -14,13 +14,12 @@ class WorldController extends Controller
     {
         $world = World::find($id);
         $user = Auth::user();
-
         $worldFirstQuestion = $world->questions->first();
 
 
         if ($user->achievements->isNotEmpty()) {
-            $userAchievement = $user->achievements->where('world_id', $id)->first();
-            return view('world', compact('userAchievements', 'worldFirstQuestion'));
+            $userAchievement = $user->achievements->where('pivot.world_id', $id)->first();
+            return view('world', compact('userAchievement', 'worldFirstQuestion'));
         } else {
             return view('world', compact('worldFirstQuestion'));
         }
