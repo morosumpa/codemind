@@ -36,28 +36,28 @@ class AnswerController extends Controller
 
         foreach ($questions as $question) {
             $userAnswer = $user->answers->where('question_id', $question->id)->first();
-
-            if ($userAnswer && $userAnswer->id == $question->correct_answer_id) {
+            if ($userAnswer && $userAnswer->isCorrect) {
                 $userCorrectAnswers++;
             }
         }
+       
 
         if ($userCorrectAnswers < 3) {
 
-            $user->achievements->attach(1, ['world_id' => $worldId]);
+            $user->achievements()->attach(1, ['world_id' => $worldId]);
         } elseif ($userCorrectAnswers >= 3 && $userCorrectAnswers < 5) {
 
-            $user->achievements->attach(2, ['world_id' => $worldId]);
+            $user->achievements()->attach(2, ['world_id' => $worldId]);
         } elseif ($userCorrectAnswers >= 5 && $userCorrectAnswers < 7) {
 
-            $user->achievements->attach(3, ['world_id' => $worldId]);
+            $user->achievements()->attach(3, ['world_id' => $worldId]);
         } elseif ($userCorrectAnswers >= 7 && $userCorrectAnswers < 10) {
 
-            $user->achievements->attach(4, ['world_id' => $worldId]);
+            $user->achievements()->attach(4, ['world_id' => $worldId]);
         } elseif ($userCorrectAnswers == 10) {
 
-            $user->achievements->attach(5, ['world_id' => $worldId]);
+            $user->achievements()->attach(5, ['world_id' => $worldId]);
         }
-        return redirect('/');
+        return redirect('/home');
     }
 }

@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Achievement extends Model
+class World extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'tier',
-        
+        'name',
     ];
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_achievements');
+    public function questions(){
+        return $this->hasMany(Question::class);
     }
-
 }

@@ -11,10 +11,15 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = [
-        'QuestionText'
+        'QuestionText',
+        'world_id',
+        'correct_answer_id'
     ];
 
-
+    public function world()
+    {
+        return $this->belongsTo(World::class);
+    }
     public function answers()
     {
         return $this->hasMany(Answer::class);

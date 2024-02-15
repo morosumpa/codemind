@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('question_id');  // Updated here
-            $table->foreign('question_id')->references('id')->on('questions');
+            $table->foreignId('question_id')->references('id')->on('questions');
             $table->text('AnswerText');
             $table->boolean('IsCorrect');
             $table->timestamps();

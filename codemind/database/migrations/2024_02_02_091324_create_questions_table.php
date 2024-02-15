@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->text('QuestionText');
+            $table->foreignId('world_id')->references('id')->on('worlds');
             $table->timestamps();
         });
     }

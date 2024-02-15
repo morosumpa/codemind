@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function achievements()
     {
-        return $this->belongsToMany(Achievement::class, 'user_achievements');
+        return $this->belongsToMany(Achievement::class, 'user_achievements')->withPivot('world_id');
     }
 
     public function answers()

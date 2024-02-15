@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\WorldController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,9 @@ Route::get('/home', function () {
     return view('auth.dashboard');
 })->middleware('auth');
 
-Route::get('/question/{id}', [QuestionController::class, 'show']);
+Route::get('/question/{id}', [QuestionController::class, 'show'])->name('question');
 
 Route::post('/question/{id}/saveUserAnswer',[AnswerController::class,'saveUserAnswer'])->name('saveUserAnswer');
 Route::post('/question/checkAnswers/{id}',[AnswerController::class,'checkAnswers'])->name('checkAnswers');
+
+Route::get('world/{id}',[WorldController::class,'show'])->name('world');

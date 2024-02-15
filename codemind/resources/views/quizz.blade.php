@@ -20,7 +20,7 @@
     <img src="" alt="Codigo">
 
     <form
-        action="@if ($question->id != 10) {{ route('saveUserAnswer', $question->id) }} @else {{ route('checkAnswers', 1) }} @endif"
+        action="@if ($question->id%10!= 0) {{ route('saveUserAnswer', $question->id) }} @else {{ route('checkAnswers', $question->world_id) }} @endif"
         method="POST">
 
         @csrf
@@ -40,7 +40,7 @@
 
             <div class="row justify-content-center align-items-center g-2">
                 <div class="col-3 offset-9">
-                    @if ($question->id != 10)
+                    @if ($question->id%10!= 0)
                         <button type="submit" class="btn btn-primary">
                             Siguiente
                         </button>
