@@ -19,6 +19,10 @@
 
     @yield('css')
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js" defer></script>
+    <script type="module" src="{{ asset('js/slider.js') }}" defer></script>
 </head>
 
 <body>
