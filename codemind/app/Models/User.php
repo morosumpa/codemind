@@ -42,4 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function achievements()
+    {
+        return $this->belongsToMany(Achievement::class, 'user_achievements')->withPivot('world_id');
+    }
+
+    public function answers()
+    {
+        return $this->belongsToMany(Answer::class, 'user_answers')->withPivot('question_id');
+    }
 }

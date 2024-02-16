@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create('user_achievements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_id')->references('id')->on('questions');
-            $table->text('AnswerText');
-            $table->boolean('IsCorrect');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('achievement_id')->references('id')->on('achievements');
+            $table->foreignId('world_id')->references('id')->on('worlds');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('answers');
+        Schema::dropIfExists('user_achievements');
     }
 };
