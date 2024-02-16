@@ -17,7 +17,8 @@
 @section('content')
     <h1 class="fw-light">Mundo</h1>
     <h3 class="fw-light text-center">{{ $question->QuestionText }}</h3>
-    <img src="" alt="Codigo">
+    <img src="{{ asset('images/html/'.$question->image) }}" alt="Codigo">
+
 
     <form
         action="@if ($question->id%10!= 0) {{ route('saveUserAnswer', $question->id) }} @else {{ route('checkAnswers', $question->world_id) }} @endif"
