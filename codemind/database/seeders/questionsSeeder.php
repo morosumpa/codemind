@@ -104,7 +104,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Cómo se cierra una etiqueta?',
             'world_id'=>1,
-            'image'=>'QHTML3.PNG'
+            'image'=>'QHTML2.PNG'
 
         ]);
 
@@ -112,7 +112,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Cuál es la función de la etiqueta <head> en un documento HTML?',
             'world_id'=>1,
-            'image'=>'QHTML4.PNG'
+            'image'=>'QHTML3.PNG'
 
         ]);
 
@@ -120,7 +120,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Qué hace la etiqueta <a> de HTML?',
             'world_id'=>1,
-            'image'=>'QHTML5.PNG'
+            'image'=>'QHTML4.PNG'
 
         ]);
 
@@ -128,7 +128,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Qué es el margen?',
             'world_id'=>1,
-            'image'=>'QHTML6.PNG'
+            'image'=>'QHTML5.PNG'
 
         ]);
 
@@ -136,7 +136,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Cómo puedes mostrar las letras de un párrafo en rojo?',
             'world_id'=>1,
-            'image'=>'QHTML7.PNG'
+            'image'=>'QHTML6.PNG'
 
         ]);
 
@@ -144,7 +144,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Cuál es la propiedad para cambiar el tamaño de la letra?',
             'world_id'=>1,
-            'image'=>'QHTML8.PNG'
+            'image'=>'QHTML7.PNG'
 
         ]);
 
@@ -152,7 +152,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Cómo se aplica el margen de 10 píxeles a todos los lados de un elemento?',
             'world_id'=>1,
-            'image'=>'QHTML9.PNG'
+            'image'=>'QHTML8.PNG'
 
         ]);
 
@@ -160,7 +160,7 @@ class questionsSeeder extends Seeder
         DB::table('questions')->insert([
             'QuestionText' => '¿Cómo puedes el fondo de un botón a color negro y letras rojas?',
             'world_id'=>1,
-            'image'=>'QHTML10.PNG'
+            'image'=>'QHTML9.PNG'
 
         ]);
 
