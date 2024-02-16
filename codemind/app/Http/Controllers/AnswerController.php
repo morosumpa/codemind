@@ -35,12 +35,15 @@ class AnswerController extends Controller
         $userCorrectAnswers = 0;
 
         foreach ($questions as $question) {
-            $userAnswer = $user->answers->where('question_id', $question->id)->first();
-            if ($userAnswer && $userAnswer->isCorrect) {
-                $userCorrectAnswers++;
+            $userAnswer = $user->answers->where('question_id', $question->id)->last();
+            
+            if ($userAnswer&&$userAnswer->IsCorrect) {
+                
+                $userCorrectAnswers+=1;
             }
+            
         }
-       
+        
 
         if ($userCorrectAnswers < 3) {
 

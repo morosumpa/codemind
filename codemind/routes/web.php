@@ -22,9 +22,9 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get('/question/{id}', [QuestionController::class, 'show'])->name('question');
+Route::get('/question/{id}', [QuestionController::class, 'show'])->name('question')->middleware('auth');
 
-Route::post('/question/{id}/saveUserAnswer',[AnswerController::class,'saveUserAnswer'])->name('saveUserAnswer');
-Route::post('/question/checkAnswers/{id}',[AnswerController::class,'checkAnswers'])->name('checkAnswers');
+Route::post('/question/{id}/saveUserAnswer',[AnswerController::class,'saveUserAnswer'])->name('saveUserAnswer')->middleware('auth');
+Route::post('/question/checkAnswers/{id}',[AnswerController::class,'checkAnswers'])->name('checkAnswers')->middleware('auth');
 
-Route::get('world/{id}',[WorldController::class,'show'])->name('world');
+Route::get('world/{id}',[WorldController::class,'show'])->name('world')->middleware('auth');
