@@ -16,12 +16,21 @@ class WorldController extends Controller
         $user = Auth::user();
         $worldFirstQuestion = $world->questions->first();
 
+        $currentTier = 0;
+        if ($user->achievements->isNotEmpty()) {
+            foreach ($user->achievements->where('pivot.world_id', $id) as $achievement) {
 
-        // if ($user->achievements->isNotEmpty()) {
-            $userAchievement = $user->achievements->where('pivot.world_id', $id)->first();
-            return view('world', compact('userAchievement', 'worldFirstQuestion'));
-        // } else {
-        //     return view('world', compact('worldFirstQuestion'));
-        // }
+                if ($achievement->tier > $currentTier) {
+                    $currentTier = $achievement->tier;
+                    $userAchievement = $achievement;
+                }
+            }
+
+            
+        } else {
+            $userAchievement = null;
+
+        }
+        return view('world', compact('userAchievement','worldFirstQuestion'));
     }
 }
