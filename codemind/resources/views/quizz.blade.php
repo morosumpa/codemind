@@ -17,7 +17,7 @@
 @section('content')
     <h1 class="fw-light">Mundo</h1>
     <h3 class="fw-light text-center">{{ $question->QuestionText }}</h3>
-    <img src="{{ asset('images/html/'.$question->image) }}" alt="Codigo">
+    <img src="{{ asset('images/questions/'.$question->image) }}" alt="Codigo">
 
 
     <form
