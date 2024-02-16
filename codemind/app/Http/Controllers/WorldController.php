@@ -17,11 +17,11 @@ class WorldController extends Controller
         $worldFirstQuestion = $world->questions->first();
 
 
-        if ($user->achievements->isNotEmpty()) {
+        // if ($user->achievements->isNotEmpty()) {
             $userAchievement = $user->achievements->where('pivot.world_id', $id)->first();
             return view('world', compact('userAchievement', 'worldFirstQuestion'));
-        } else {
-            return view('world', compact('worldFirstQuestion'));
-        }
+        // } else {
+        //     return view('world', compact('worldFirstQuestion'));
+        // }
     }
 }

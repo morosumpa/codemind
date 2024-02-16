@@ -58,6 +58,6 @@ class AnswerController extends Controller
 
             $user->achievements()->attach(5, ['world_id' => $worldId]);
         }
-        return redirect('/home');
+        return redirect("/world/$worldId");
     }
 }
