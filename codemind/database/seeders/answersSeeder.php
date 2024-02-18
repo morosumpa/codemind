@@ -266,7 +266,7 @@ class answersSeeder extends Seeder
         // HTML/CSS Question 1 Answers
         DB::table('answers')->insert([
             'question_id' => 11, // Change with the actual question ID
-            'AnswerText' => '<p>',
+            'AnswerText' => '<paf>',
             'IsCorrect' => false,
         ]);
 
@@ -291,7 +291,7 @@ class answersSeeder extends Seeder
         // HTML/CSS Question 2 Answers
         DB::table('answers')->insert([
             'question_id' => 12,
-            'AnswerText' => '<list>',
+            'AnswerText' => '<lista>',
             'IsCorrect' => false,
         ]);
 
