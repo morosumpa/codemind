@@ -167,7 +167,7 @@ class questionsSeeder extends Seeder
 
         // HTML/CSS Question 10
         DB::table('questions')->insert([
-            'QuestionText' => '¿Cómo puedes el fondo de un botón a color negro y letras rojas?',
+            'QuestionText' => '¿Cómo puedes poner el fondo de un botón de color negro y letras rojas?',
             'world_id'=>1,
             'image'=>'QHTML9.PNG'
 
