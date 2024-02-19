@@ -25,6 +25,6 @@ Route::get('/', function () {
 Route::get('/question/{id}', [QuestionController::class, 'show'])->name('question')->middleware('auth');
 
 Route::post('/question/{id}/saveUserAnswer',[AnswerController::class,'saveUserAnswer'])->name('saveUserAnswer')->middleware('auth');
-Route::post('/question/checkAnswers/{id}',[AnswerController::class,'checkAnswers'])->name('checkAnswers')->middleware('auth');
+Route::get('/question/checkAnswers/{id}',[AnswerController::class,'checkAnswers'])->name('checkAnswers')->middleware('auth');
 
 Route::get('world/{id}',[WorldController::class,'show'])->name('world')->middleware('auth');

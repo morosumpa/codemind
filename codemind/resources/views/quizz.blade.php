@@ -23,9 +23,7 @@
             </div>
         </div>
 
-        <form
-            action="@if ($question->id % 10 != 0) {{ route('saveUserAnswer', $question->id) }} @else {{ route('checkAnswers', $question->world_id) }} @endif"
-            method="POST">
+        <form action="{{ route('saveUserAnswer', $question->id) }}" method="POST">
             @csrf
             <div class="row justify-content-center align-items-center gap-2 mt-5">
                 @foreach ($answers as $answer)
