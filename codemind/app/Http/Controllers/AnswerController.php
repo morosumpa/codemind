@@ -15,15 +15,21 @@ class AnswerController extends Controller
 
         $user = Auth::user();
         $answerId = $request->answer_id;
-        $answer=Answer::find($answerId);
+        $answer = Answer::find($answerId);
         $questionId = $request->question_id;
 
-        
-        $user->answers()->attach($answer,['question_id'=>$questionId]);
+        $question=Question::find($questionId);
+
+
+        $user->answers()->attach($answer, ['question_id' => $questionId]);
 
         $nextQuestion = $questionId + 1;
-
-        return redirect('question/' . $nextQuestion);
+        
+        if ($questionId % 10 == 0) {
+            return redirect('/question/checkAnswers/' . $question->world_id);
+        } else {
+            return redirect('question/' . $nextQuestion);
+        }
     }
 
     public function checkAnswers($worldId)
@@ -36,14 +42,13 @@ class AnswerController extends Controller
 
         foreach ($questions as $question) {
             $userAnswer = $user->answers->where('question_id', $question->id)->last();
-            
-            if ($userAnswer&&$userAnswer->IsCorrect) {
-                
-                $userCorrectAnswers+=1;
+
+            if ($userAnswer && $userAnswer->IsCorrect) {
+
+                $userCorrectAnswers += 1;
             }
-            
         }
-        
+
 
         if ($userCorrectAnswers < 3) {
 
