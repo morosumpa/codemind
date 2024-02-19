@@ -17,6 +17,7 @@ class WorldController extends Controller
         $worldFirstQuestion = $world->questions->first();
 
         $currentTier = 0;
+        $userAchievement = null;
         if ($user->achievements->isNotEmpty()) {
             foreach ($user->achievements->where('pivot.world_id', $id) as $achievement) {
 
@@ -27,9 +28,6 @@ class WorldController extends Controller
             }
 
             
-        } else {
-            $userAchievement = null;
-
         }
         return view('world', compact('userAchievement','worldFirstQuestion'));
     }
